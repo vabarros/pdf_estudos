@@ -2,11 +2,11 @@
 
 services:
   - type: web
-    name: quiz-backend-api # Nome do seu serviço web do Render (o mesmo que você usou)
-    env: java              # Explicitamente diz ao Render que este é um serviço Java
-    rootDir: backend       # Diz ao Render para ir para a pasta 'backend' para este serviço
-    buildCommand: ./mvnw clean install -DskipTests # Seu comando de build do Maven
-    startCommand: java -jar target/quiz-backend-0.0.1-SNAPSHOT.jar # Seu comando de start (AJUSTE O NOME DO JAR SE NECESSÁRIO)
+    name: quiz-backend-api
+    env: java
+    rootDir: backend
+    buildCommand: ./mvnw clean install -DskipTests
+    startCommand: java -jar target/quiz-backend-0.0.1-SNAPSHOT.jar # ATENÇÃO: VERIFIQUE E AJUSTE O NOME DO SEU ARQUIVO JAR AQUI!
     envVars:
       - key: JAVA_HOME
-        value: /opt/jdk/openjdk # Garante que JAVA_HOME esteja configurado para este serviço
+        value: /opt/jdk/openjdk
