@@ -11,7 +11,7 @@ services:
     # ... (restante do seu render.yaml para o backend)
 
   # --- SERVIÇO FRONTEND ---
-  - type: HTML
+  -
     name: quiz-frontend-app
     rootDir: backend/frontend      # <-- Este CAMINHO DEIXARIA DE FUNCIONAR
     # DEVERIA SER:
