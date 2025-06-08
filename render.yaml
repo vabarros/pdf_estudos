@@ -1,12 +1,23 @@
-# render.yaml (na raiz do seu repositório PDF Estudo/)
+# render.yaml
+# Este arquivo vai na raiz do seu repositório GitHub (PDF Estudo/)
 
 services:
   - type: web
     name: quiz-backend-api
     env: java
+    autoDeploy: true # Opcional: Garante que o deploy é automático em cada push
     rootDir: backend
-    buildCommand: ./mvnw clean install -DskipTests
-    startCommand: java -jar target/quiz-backend-0.0.1-SNAPSHOT.jar # ATENÇÃO: VERIFIQUE E AJUSTE O NOME DO SEU ARQUIVO JAR AQUI!
+    plan: free # Opcional: Especifica o plano de serviço
+    # Versão do Java. Render geralmente usa OpenJDK 17 ou 21. Java 17 é uma escolha segura.
+    # Esta linha tenta especificar a versão do JDK. Pode não ser sempre necessário,
+    # mas vale a pena para tentar resolver o erro "invalid runtime java".
+    # Se ainda der erro, podemos tentar remover esta linha e voltar para apenas 'env: java'
+    # mas esta sintaxe é a mais completa para especificar o ambiente Java.
     envVars:
-      - key: JAVA_HOME
+      - key: JAVA_VERSION
+        value: 17 # Render normalmente aceita 11, 17, 21. Já está em 17 no pom.xml.
+      - key: JAVA_HOME # Render geralmente define isso, mas reforçar pode ajudar
         value: /opt/jdk/openjdk
+
+    buildCommand: ./mvnw clean install -DskipTests
+    startCommand: java -jar target/quiz-backend-0.0.1-SNAPSHOT.jar # VERIFIQUE O NOME EXATO DO SEU JAR!
