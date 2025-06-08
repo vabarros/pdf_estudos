@@ -12,7 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**") // Permite CORS para todos os endpoints
                 .allowedOrigins("http://localhost:5500",
                         "http://localhost:63342",
-                        "https://quiz-backend-api-2zfd.onrender.com", // Adicionar o próprio domínio do backend (às vezes necessário para alguns cenários)
+                        "https://quiz-backend-api-dot0.onrender.com", // Adicionar o próprio domínio do backend (às vezes necessário para alguns cenários)
                         "https://quiz-frontend-SEU_HASH_UNICO.onrender.com" ) // Ajuste conforme seu frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")

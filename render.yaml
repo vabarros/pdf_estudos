@@ -1,7 +1,6 @@
 services: # Nível superior
   - type: web # Primeiro serviço (backend)
     name: quiz-backend-api
-    runtime: docker
     rootDir: backend
     dockerfilePath: Dockerfile
     # Adicione outras configurações do backend aqui, se aplicável
