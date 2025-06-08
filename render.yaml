@@ -11,5 +11,5 @@ services: # Nível superior
     name: quiz-frontend-app
     runtime: static
     rootDir: frontend # Caminho relativo à raiz do repositório
-    buildOutputDirectory: . # Onde os arquivos finais estarão dentro de rootDir
+    #buildOutputDirectory: . # Onde os arquivos finais estarão dentro de rootDir
     # buildCommand: # Opcional para HTML/CSS/JS puro sem build step
