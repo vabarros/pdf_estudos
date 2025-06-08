@@ -1,14 +1,24 @@
-services: # Nível superior
-  - type: web # Primeiro serviço (backend)
-    name: quiz-backend-api
-    rootDir: backend
-    dockerfilePath: Dockerfile
-    # Adicione outras configurações do backend aqui, se aplicável
-    # como envVars, buildCommand, startCommand
+# render.yaml (na raiz do seu repositório PDF Estudo/)
 
+services:
+  # --- SERVIÇO BACKEND (já configurado) ---
   - type: web
-    name: quiz-frontend-app
-    runtime: static
-    rootDir: frontend # Caminho relativo à raiz do repositório
-    #buildOutputDirectory: . # Onde os arquivos finais estarão dentro de rootDir
-    # buildCommand: # Opcional para HTML/CSS/JS puro sem build step
+    name: quiz-backend-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    dockerfilePath: Dockerfile
+    # ... (restante do seu render.yaml para o backend)
+
+  # --- NOVO SERVIÇO FRONTEND ---
+  - type: web
+    runtime: static# Tipo de serviço para arquivos estáticos (HTML, CSS, JS)
+    name: quiz-frontend-app # Um nome para seu serviço de frontend
+    rootDir: frontend      # Supondo que seus arquivos frontend estão na pasta 'frontend/'
+    #buildOutputDirectory: . # Onde os arquivos estáticos compilados (se houver) serão encontrados. Para HTML/CSS/JS puro, é a raiz.
+    # buildCommand: npm install && npm run build # Se você tivesse um build step para o frontend (ex: React, Vue)
+    # publishPath: / # Onde o conteúdo deve ser servido
+    # Se você precisar de variáveis de ambiente no frontend (por exemplo, a URL da API, mas para JS puro é mais complexo)
+    # envVars:
+    #   - key: VITE_API_URL # Exemplo para um framework como Vite
+    #     value: https://quiz-backend-api-2zfd.onrender.com/api
