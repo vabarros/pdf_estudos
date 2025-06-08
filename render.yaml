@@ -1,5 +1,14 @@
-services:
-  - type: static
-    name: quiz-frontend-test
-    rootDir: frontend
-    buildOutputDirectory: .
+services: # Nível superior
+  - type: web # Primeiro serviço (backend)
+    name: quiz-backend-api
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: Dockerfile
+    # Adicione outras configurações do backend aqui, se aplicável
+    # como envVars, buildCommand, startCommand
+
+  - type: static # Segundo serviço (frontend)
+    name: quiz-frontend-app
+    rootDir: frontend # Caminho relativo à raiz do repositório
+    buildOutputDirectory: . # Onde os arquivos finais estarão dentro de rootDir
+    # buildCommand: # Opcional para HTML/CSS/JS puro sem build step
