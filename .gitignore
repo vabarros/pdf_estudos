@@ -1,0 +1,52 @@
+# Arquivos de Build do Maven/Gradle
+target/
+build/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# Arquivos de IDE (IntelliJ IDEA, VS Code, Eclipse)
+.idea/
+.vscode/
+.project
+.classpath
+.settings/
+*.iml
+*.iws
+*.ipr
+*.class
+
+# Arquivos de Log e Temp
+*.log
+log/
+temp/
+tmp/
+*.tmp
+
+# Dependências (se usar Maven Wrapper ou Gradle Wrapper)
+.gradle/
+.mvn/wrapper/maven-wrapper.jar # Mantenha o maven-wrapper.properties se usar wrapper
+!gradle-wrapper.jar # Mantenha o wrapper jar se você usa o gradle wrapper e não está em .gradle/
+!mvnw
+!mvnw.cmd
+
+# ARQUIVOS SENSÍVEIS (CRUCIAL PARA SUAS CHAVES!)
+# NUNCA ENVIE ESTES ARQUIVOS PARA O REPOSITÓRIO PÚBLICO!
+
+# Para sua chave API do Google Gemini e outras configurações sensíveis
+# Opção A: Se você usar um arquivo application.properties com chaves, adicione-o aqui:
+# backend/src/main/resources/application.properties
+
+# Opção B (Melhor Prática): Se você criar um arquivo application-local.properties
+# ou application-dev.properties APENAS para suas chaves locais, adicione-o aqui:
+backend/src/main/resources/application-local.properties
+backend/src/main/resources/application-dev.properties
+
+# Arquivos de ambiente locais (comum em outros tipos de projeto, mas útil saber)
+.env
+.env.*
+
+# Outros arquivos específicos do seu projeto que você não quer versionar
+*.pdf # Se você não quiser os PDFs de teste no repositório

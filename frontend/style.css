@@ -1,0 +1,272 @@
+/* style.css */
+
+/* Reset básico e tipografia */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3); /* Gradiente suave azul */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo para não ficar centralizado na vertical */
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Contêiner principal do quiz */
+.container {
+    max-width: 750px; /* Mais espaço para perguntas e alternativas */
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Sombra mais destacada */
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    color: #34495e;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* Seção de Configuração do Quiz (Tela Inicial) */
+#quiz-setup {
+    padding: 20px;
+    border: 1px dashed #a0a0a0;
+    border-radius: 10px;
+    background-color: #f9fbfd;
+    margin-bottom: 30px;
+}
+
+.input-group { /* Agrupa label e input para melhor layout */
+    margin-bottom: 15px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha labels e inputs à esquerda */
+}
+
+#quiz-setup label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+    margin-left: 5px; /* Pequeno espaçamento da borda */
+}
+
+#quiz-setup input[type="file"] {
+    width: calc(100% - 22px); /* Ajusta a largura para padding e borda */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#quiz-setup input[type="number"] {
+    width: 100px; /* Largura fixa para campos numéricos */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-align: center;
+    -moz-appearance: textfield; /* Remove setas padrão do Firefox */
+}
+
+/* Remove setas padrão do Chrome, Safari, Edge, Opera */
+#quiz-setup input[type="number"]::-webkit-outer-spin-button,
+#quiz-setup input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Estilo geral para todos os botões */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    padding: 14px 28px;
+    font-size: 1.15em;
+    font-weight: 500;
+    width: auto; /* Ajusta a largura ao conteúdo */
+    display: inline-block; /* Permite que os botões fiquem lado a lado */
+    margin: 10px; /* Para espaçamento entre botões */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+/* Mensagens de status (carregamento, erro, feedback de resposta) */
+.quiz-message-box { /* Nova classe para centralizar a mensagem, em vez de #quiz-message */
+  margin-top: 25px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.2em;
+  text-align: center;
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* Estilos de cor da mensagem controlados via JavaScript (ver script.js) */
+
+
+/* Seção do Quiz (Onde as perguntas são exibidas) */
+#quiz-section {
+    text-align: left; /* Alinha o conteúdo da seção do quiz à esquerda */
+    /* Você pode adicionar padding e background aqui se quiser uma caixa separada */
+}
+
+/* Texto da Pergunta */
+#question-text {
+    font-size: 1.5em;
+    margin-bottom: 25px;
+    font-weight: 600;
+    color: #444;
+    line-height: 1.5;
+    text-align: center; /* Centraliza o texto da pergunta */
+}
+
+/* Contêiner das opções */
+#options-container {
+    display: flex;
+    flex-direction: column; /* Opções em coluna para melhor legibilidade */
+    gap: 12px; /* Espaço entre as opções */
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada botão de opção de quiz */
+.quiz-option {
+    background: #f8f8f8;
+    color: #333;
+    border: 1px solid #dcdcdc;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    text-align: left; /* Alinha o texto da opção à esquerda */
+    font-size: 1.1em;
+    width: 100%; /* Ocupa a largura total do contêiner */
+    white-space: normal; /* Permite que o texto quebre linhas */
+    word-wrap: break-word; /* Garante que palavras longas quebrem */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra sutil nas opções */
+}
+
+.quiz-option:hover:not(:disabled) {
+    background: #e9e9e9;
+    border-color: #c0c0c0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilos para opções selecionadas (correta/incorreta) */
+.quiz-option.correct {
+    background-color: #d4edda; /* Verde suave */
+    border-color: #28a745; /* Borda verde */
+    color: #155724; /* Texto verde escuro */
+    font-weight: bold;
+}
+
+.quiz-option.incorrect {
+    background-color: #f8d7da; /* Vermelho suave */
+    border-color: #dc3545; /* Borda vermelha */
+    color: #721c24; /* Texto vermelho escuro */
+    font-weight: bold;
+}
+
+/* Estilos para botões de navegação e controles no quiz */
+.quiz-navigation {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os botões */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    #quiz-setup input[type="file"],
+    #quiz-setup input[type="number"] {
+        width: calc(100% - 22px);
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    #question-text {
+        font-size: 1.3em;
+    }
+
+    .quiz-option {
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    .quiz-navigation {
+        flex-direction: column; /* Botões de navegação em coluna em telas menores */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .quiz-message-box {
+        font-size: 1em;
+        padding: 10px 15px;
+    }
+}

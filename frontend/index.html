@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<div class="container">
+  <div id="quiz-setup" class="quiz-panel">
+    <h1>Gerador de Quiz Interativo</h1>
+    <p>Faça upload de um arquivo PDF para gerar perguntas de múltipla escolha.</p>
+
+    <div class="input-group">
+      <label for="file-input">Selecionar PDF:</label>
+      <input type="file" id="file-input" accept=".pdf">
+    </div>
+
+    <div class="input-group">
+      <label for="question-count">Número de Perguntas:</label>
+      <input type="number" id="question-count" value="5" min="1">
+    </div>
+
+    <div class="input-group">
+      <label for="startPage">Página Inicial (opcional):</label>
+      <input type="number" id="startPage" min="1" placeholder="Ex: 1">
+    </div>
+    <div class="input-group">
+      <label for="endPage">Página Final (opcional):</label>
+      <input type="number" id="endPage" min="1" placeholder="Ex: 10">
+    </div>
+
+    <button id="generate-quiz-btn">Gerar Quiz</button>
+  </div>
+
+  <div id="quiz-section" class="quiz-panel" style="display: none;">
+    <h2 id="question-text"></h2>
+    <div id="options-container" class="options-grid"></div>
+    <div id="quiz-message" class="quiz-message-box"></div>
+    <div class="quiz-navigation">
+      <button id="next-question-btn" style="display: none;">Próxima Pergunta</button>
+      <button id="generate-more-btn" style="display: none;">Gerar Mais Perguntas</button>
+      <button id="reset-button">Reiniciar Quiz</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
