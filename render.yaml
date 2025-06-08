@@ -15,9 +15,3 @@ services:
     name: quiz-frontend-app # Um nome para seu serviço de frontend
     rootDir: frontend      # Supondo que seus arquivos frontend estão na pasta 'frontend/'
     buildOutputDirectory: . # Onde os arquivos estáticos compilados (se houver) serão encontrados. Para HTML/CSS/JS puro, é a raiz.
-    # buildCommand: npm install && npm run build # Se você tivesse um build step para o frontend (ex: React, Vue)
-    # publishPath: / # Onde o conteúdo deve ser servido
-    # Se você precisar de variáveis de ambiente no frontend (por exemplo, a URL da API, mas para JS puro é mais complexo)
-    # envVars:
-    #   - key: VITE_API_URL # Exemplo para um framework como Vite
-    #     value: https://quiz-backend-api-2zfd.onrender.com/api
