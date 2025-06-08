@@ -7,8 +7,7 @@ services: # Nível superior
     # Adicione outras configurações do backend aqui, se aplicável
     # como envVars, buildCommand, startCommand
 
-  - type: static # Segundo serviço (frontend)
-    format: html
+  - type: static
     name: quiz-frontend-app
     rootDir: frontend # Caminho relativo à raiz do repositório
     buildOutputDirectory: . # Onde os arquivos finais estarão dentro de rootDir
