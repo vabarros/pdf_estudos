@@ -12,7 +12,7 @@ services:
 
   # --- NOVO SERVIÇO FRONTEND ---
   - type: web
-    runtime: static# Tipo de serviço para arquivos estáticos (HTML, CSS, JS)
+    runtime: static # Tipo de serviço para arquivos estáticos (HTML, CSS, JS)
     name: quiz-frontend-app # Um nome para seu serviço de frontend
     rootDir: frontend      # Supondo que seus arquivos frontend estão na pasta 'frontend/'
     #buildOutputDirectory: . # Onde os arquivos estáticos compilados (se houver) serão encontrados. Para HTML/CSS/JS puro, é a raiz.
