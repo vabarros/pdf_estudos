@@ -5,6 +5,9 @@ services:
     name: quiz-backend-api
     runtime: docker
     rootDir: backend
-    plan: free # <--- ADICIONE ESTA LINHA AQUI
-    dockerfilePath: backend/Dockerfile
-    # ... (restante do seu render.yaml)
+    plan: free
+    dockerfilePath: Dockerfile # <--- MUDANÇA AQUI: Removido 'backend/'
+    # buildCommand e startCommand NÃO SÃO NECESSÁRIOS aqui, pois o Dockerfile os gerencia
+    # envVars:
+    #   - key: GEMINI_API_KEY # Se já configurou no painel do Render, não precisa aqui.
+    #     sync: false
