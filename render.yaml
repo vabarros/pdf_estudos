@@ -1,11 +1,5 @@
-# render.yaml (na raiz do seu repositório PDF Estudo/)
-
 services:
-  # --- SERVIÇO BACKEND (já configurado) ---
-  - type: web
-    name: quiz-backend-api
-    runtime: docker
-    rootDir: backend
-    plan: free
-    dockerfilePath: Dockerfile
-    # ... (restante do seu render.yaml para o backend)
+  - type: static
+    name: quiz-frontend-test
+    rootDir: frontend
+    buildOutputDirectory: .

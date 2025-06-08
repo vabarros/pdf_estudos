@@ -1,5 +1,0 @@
-services:
-  - type: static
-    name: quiz-frontend-test
-    rootDir: frontend
-    buildOutputDirectory: .
