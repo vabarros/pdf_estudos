@@ -1,0 +1,17 @@
+# render.yaml (na raiz do seu repositório PDF Estudo/)
+
+services:
+  - type: web
+    name: quiz-backend-api # Nome do seu serviço web do Render (o mesmo que você usou)
+    env: java              # Explicitamente diz ao Render que este é um serviço Java
+    rootDir: backend       # Diz ao Render para ir para a pasta 'backend' para este serviço
+    buildCommand: ./mvnw clean install -DskipTests # Seu comando de build do Maven
+    startCommand: java -jar target/quiz-backend-0.0.1-SNAPSHOT.jar # Seu comando de start (AJUSTE O NOME DO JAR SE NECESSÁRIO)
+    envVars:
+      - key: JAVA_HOME
+        value: /opt/jdk/openjdk # Garante que JAVA_HOME esteja configurado para este serviço
+      - key: GEMINI_API_KEY
+        # Não inclua o valor real aqui! Render irá usar a variável de ambiente que você já configurou no painel.
+        # Este é apenas um lembrete para a chave API.
+        # Se você já configurou GEMINI_API_KEY no painel do Render, não precisa listar ela aqui no render.yaml.
+        # Render mescla as variáveis do painel com as do render.yaml, dando prioridade às do painel em caso de conflito.
