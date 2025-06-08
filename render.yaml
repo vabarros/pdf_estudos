@@ -9,13 +9,3 @@ services:
     plan: free
     dockerfilePath: Dockerfile
     # ... (restante do seu render.yaml para o backend)
-
-  # --- SERVIÇO FRONTEND ---
-  -
-    name: quiz-frontend-app
-    rootDir: backend/frontend      # <-- Este CAMINHO DEIXARIA DE FUNCIONAR
-    # DEVERIA SER:
-    # rootDir: ../frontend # <--- ATENÇÃO: ISSO É UMA ALTERNATIVA QUE PODE SER PROBLEMÁTICA EM BLUEPRINTS
-    # ou, melhor, mover a pasta frontend para dentro de backend/ se o blueprint exige.
-    # ou, melhor ainda, garantir que o root directory do blueprint seja a raiz do repo.
-    buildOutputDirectory: .
