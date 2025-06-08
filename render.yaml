@@ -3,11 +3,8 @@
 services:
   - type: web
     name: quiz-backend-api
-    runtime: docker              # *** A GRANDE MUDANÇA AQUI ***
+    runtime: docker
     rootDir: backend
-    dockerfilePath: backend/Dockerfile # Caminho para o Dockerfile que acabamos de criar
-    # buildCommand e startCommand NÃO SÃO NECESSÁRIOS aqui, pois o Dockerfile os gerencia
-    # envVars:
-    #   - key: GEMINI_API_KEY # Se já configurou no painel do Render, não precisa aqui.
-    #     sync: false # Ou o método que você usa para segredos.
-    # JAVA_HOME e JAVA_VERSION são gerenciados pela imagem Docker base.
+    plan: free # <--- ADICIONE ESTA LINHA AQUI
+    dockerfilePath: backend/Dockerfile
+    # ... (restante do seu render.yaml)
