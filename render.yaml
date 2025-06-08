@@ -8,6 +8,7 @@ services: # Nível superior
     # como envVars, buildCommand, startCommand
 
   - type: static # Segundo serviço (frontend)
+    format: html
     name: quiz-frontend-app
     rootDir: frontend # Caminho relativo à raiz do repositório
     buildOutputDirectory: . # Onde os arquivos finais estarão dentro de rootDir
