@@ -1,6 +1,6 @@
 // script.js
 
-const API_BASE_URL = 'http://localhost:8080/api'; // Certifique-se de que esta URL está correta
+const API_BASE_URL = 'https://quiz-backend-api.onrender.com/api'; // Certifique-se de que esta URL está correta
 
 // === Variáveis de Estado do Quiz ===
 let currentQuizQuestions = []; // Armazena a lista de perguntas para a sessão atual
