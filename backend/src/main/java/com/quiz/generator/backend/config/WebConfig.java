@@ -12,9 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/api/**") // Permite CORS para todos os endpoints
                 .allowedOrigins("http://localhost:5500",
                         "http://localhost:63342",
-                        "https://*.netlify.app",
-                        "http://localhost:8080", // Para testes locais do frontend (se você abre diretamente o HTML)
-                        "http://localhost:3000") // Ajuste conforme seu frontend
+                        "https://quiz-backend-api-2zfd.onrender.com", // Adicionar o próprio domínio do backend (às vezes necessário para alguns cenários)
+                        "https://quiz-frontend-SEU_HASH_UNICO.onrender.com" ) // Ajuste conforme seu frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
