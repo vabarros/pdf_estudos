@@ -1,11 +1,19 @@
-# render.yaml
+# render.yaml (na raiz do seu repositório PDF Estudo/)
+
 services:
-  # ... (seu backend) ...
+  # --- SERVIÇO BACKEND (já configurado) ---
+  - type: web
+    name: quiz-backend-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    dockerfilePath: Dockerfile
+    # ... (restante do seu render.yaml para o backend)
 
   # --- SERVIÇO FRONTEND ---
   - type: static
     name: quiz-frontend-app
-    rootDir: frontend      # <-- Este CAMINHO DEIXARIA DE FUNCIONAR
+    rootDir: ../frontend      # <-- Este CAMINHO DEIXARIA DE FUNCIONAR
     # DEVERIA SER:
     # rootDir: ../frontend # <--- ATENÇÃO: ISSO É UMA ALTERNATIVA QUE PODE SER PROBLEMÁTICA EM BLUEPRINTS
     # ou, melhor, mover a pasta frontend para dentro de backend/ se o blueprint exige.
