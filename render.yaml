@@ -10,17 +10,10 @@ services:
     dockerfilePath: Dockerfile
     # ... (restante do seu render.yaml para o backend)
 
-  # --- NOVO SERVIÇO FRONTEND ---
-  - type: web
-    runtime: static # Tipo de serviço para arquivos estáticos (HTML, CSS, JS)
-    name: quiz-frontend-app # Um nome para seu serviço de frontend
-    rootDir: frontend
-    buildOutputDirectory: . # Onde os arquivos são gerados (se houver um build step, aqui seria 'build' ou 'dist')
-    publishPath: / # Supondo que seus arquivos frontend estão na pasta 'frontend/'
-    #buildOutputDirectory: . # Onde os arquivos estáticos compilados (se houver) serão encontrados. Para HTML/CSS/JS puro, é a raiz.
-    # buildCommand: npm install && npm run build # Se você tivesse um build step para o frontend (ex: React, Vue)
-    # publishPath: / # Onde o conteúdo deve ser servido
-    # Se você precisar de variáveis de ambiente no frontend (por exemplo, a URL da API, mas para JS puro é mais complexo)
-    # envVars:
-    #   - key: VITE_API_URL # Exemplo para um framework como Vite
-    #     value: https://quiz-backend-api-2zfd.onrender.com/api
+  # --- SERVIÇO FRONTEND ---
+  - type: web # <--- Tipo de serviço: web (para HTTP/HTTPS)
+    name: quiz-frontend-app # <--- Indentado 2 espaços em relação ao '- type:'
+    runtime: static # <--- Indentado 2 espaços em relação ao '- type:'
+    rootDir: frontend # <--- Indentado 2 espaços em relação ao '- type:'
+    buildOutputDirectory: . # <--- Indentado 2 espaços em relação ao '- type:'
+    publishPath: / # <--- Indentado 2 espaços em relação ao '- type:'
