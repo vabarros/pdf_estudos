@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.quiz.generator.backend.model.QuizQuestion;
-import edu.stanford.nlp.pipeline.StanfordCoreNLP; // Manter para futuras análises ou fallback
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,8 +25,6 @@ public class QuestionGenerationService {
     @Value("${google.gemini.api.url}")
     private String geminiApiUrl;
 
-    // Manter o CoreNLP para possível uso futuro (ex: limpeza de texto, ou fallback)
-    private StanfordCoreNLP coreNlpPipeline;
 
     @PostConstruct
     public void init() {
