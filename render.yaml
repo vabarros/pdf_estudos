@@ -15,5 +15,6 @@ services:
     name: quiz-frontend-app # <--- Indentado 2 espaços em relação ao '- type:'
     runtime: static # <--- Indentado 2 espaços em relação ao '- type:'
     rootDir: frontend # <--- Indentado 2 espaços em relação ao '- type:'
-    buildOutputDirectory: .
-    publishPath: /
+    staticPublishPath: ./build
+    # buildOutputDirectory: .
+    # publishPath: /
