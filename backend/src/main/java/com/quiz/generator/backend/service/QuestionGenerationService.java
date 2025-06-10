@@ -7,17 +7,16 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.quiz.generator.backend.model.QuizQuestion;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;   // Adicionado para HttpEntity
-import org.springframework.http.HttpHeaders;  // Adicionado para HttpHeaders
-import org.springframework.http.MediaType;    // Adicionado para MediaType
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException; // Adicionado para tratar exceções de parsing
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Properties; // Manter se precisar do CoreNLP para outras funções
 
 @Service
 public class QuestionGenerationService {
@@ -153,19 +152,15 @@ public class QuestionGenerationService {
                 question.setAlternativas(alternatives);
                 questions.add(question);
             }
-        } catch (IOException e) { // Mudança para IOException para parsing específico
+        } catch (IOException e) {
             System.err.println("Erro de IO ao parsear a resposta JSON do OpenAI: " + e.getMessage());
             System.err.println("Resposta recebida (problema no parsing): " + openAIResponse.toPrettyString());
             e.printStackTrace();
-        } catch (Exception e) { // Para outras exceções não IO
+        } catch (Exception e) {
             System.err.println("Erro inesperado ao parsear a resposta JSON do OpenAI: " + e.getMessage());
             System.err.println("Resposta recebida (problema no parsing): " + openAIResponse.toPrettyString());
             e.printStackTrace();
         }
         return questions;
     }
-
-    // Você pode manter o método generateQuestionsWithCoreNLP como um fallback ou para testes
-    // private List<QuizQuestion> generateQuestionsWithCoreNLP(String textContent, int count) { /* ... código anterior ... */ }
-
 }
